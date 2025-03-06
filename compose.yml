@@ -1,0 +1,42 @@
+name: todo-app-mock
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile 
+      args:
+        DEVELOPMENT: 1
+    volumes:
+      - ./backend:/app
+    ports:
+      - '8000:8000'
+    tty: true
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@db:5432/todo_db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+  db:
+    image: postgres:15
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=todo_db
+      - PGSSLMODE=disable
+
+volumes:
+  postgres_data:
