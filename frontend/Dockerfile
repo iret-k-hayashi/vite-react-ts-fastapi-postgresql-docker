@@ -13,6 +13,3 @@ ENV NODE_EXTRA_CA_CERTS=/etc/ssl/certs/IRET-SSL-TrsutCA.crt
 
 # 依存関係をインストール
 RUN npm install
-
-# 開発用サーバの起動
-CMD ["npm", "run", "dev"]
