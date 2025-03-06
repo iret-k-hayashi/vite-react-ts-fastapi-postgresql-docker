@@ -25,6 +25,18 @@ services:
     volumes:
       - ./frontend:/app
       - /app/node_modules
+    command: ["npm", "run", "dev"]
+
+  storybook:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '6006:6006'
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: ["npm", "run", "storybook"]
 
   db:
     image: postgres:15
