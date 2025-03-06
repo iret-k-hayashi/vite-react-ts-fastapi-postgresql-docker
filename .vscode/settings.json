@@ -6,5 +6,29 @@
         "source.organizeImports.ruff": "explicit"
       },
       "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "[typescriptreact]": {
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.organizeImports.eslint": "explicit"
+      },
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.organizeImports.eslint": "explicit"
+      },
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.organizeImports.eslint": "explicit"
+      },
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
   }
