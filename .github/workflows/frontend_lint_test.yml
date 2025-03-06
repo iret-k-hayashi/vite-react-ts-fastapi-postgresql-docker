@@ -21,6 +21,9 @@ jobs:
       - name: Install dependencies
         run: cd frontend && npm ci
 
+      - name: Install Playwright Browsers
+        run: cd frontend && npx playwright install
+
       - name: Lint
         run: cd frontend && npm run lint
 

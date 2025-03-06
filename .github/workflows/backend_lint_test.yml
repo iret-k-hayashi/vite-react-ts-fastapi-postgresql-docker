@@ -27,7 +27,7 @@ jobs:
         run: cd backend && uv sync --all-extras --dev
 
       - name: Ruff Check
-        run: cd backend && ruff check --output-format=github .
+        run: cd backend && uv run ruff check --output-format=github .
 
       - name: Run Tests
         run: cd backend && uv run pytest
