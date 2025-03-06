@@ -13,9 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Move to backend
-        run: cd backend
-
       - name: Install uv
         uses: astral-sh/setup-uv@v5
         with:
@@ -24,15 +21,15 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version-file: ".python-version"
+          python-version-file: "backend/.python-version"
 
       - name: Install the project
-        run: uv sync --all-extras --dev
+        run: cd backend && uv sync --all-extras --dev
 
       - name: Ruff Check
-        run: ruff check --output-format=github .
+        run: cd backend && ruff check --output-format=github .
 
       - name: Run Tests
-        run: uv run pytest
+        run: cd backend && uv run pytest
 
 
