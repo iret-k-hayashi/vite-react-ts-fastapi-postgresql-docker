@@ -28,11 +28,3 @@ async def root():
 @app.get("/health")
 async def health():
     return {"status": "ok"}
-
-
-@app.get("/health/db")
-async def health_db():
-    try:
-        return {"status": "ok"}
-    except Exception as e:
-        return {"status": "error", "message": str(e)}
